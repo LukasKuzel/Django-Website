@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <div>
+            <div class="row mt-2">
+                <div class="col-md-2 p-3">
+                </div>
+                <div class="col-md-3 obrazek p-3">
+                    <h2 class="display-5 text-center text-white">Knihy</h2>
+                </div>
+                <div class="col-md-2 p-3">
+                </div>
+                <div class="col-md-3 obrazek p-3">
+                    <h2 class="display-5 text-center text-white">Autoři</h2>
+                </div>
+                <div class="col-md-1 p-3">
+                </div>
+            </div>
+        </div>
+        <div class="text-white">
+            <div class="row mt-2">
+                <div class="col-md-2 p-3">
+                </div>
+                <div class="col-md-3 obrazek p-3 text-center">
+                    {% for book in books %}
+                        <a href="{% url 'bookdetail' book.pk %}" class="text-white">{{ book.name }}</a>
+                        <div>
+                            <img class="img-thumbnail" style="height: 12rem; width: 9rem;" src="{{ book.photo.url }}">
+                        </div>
+                        <p></p>
+                    {% endfor %}
+                </div>
+                <div class="col-md-2 p-3">
+                </div>
+                <div class="col-md-3 obrazek p-3 text-center">
+                    {% for author in authors %}
+                    <a href="{% url 'authordetail' author.pk %}" class="text-white">{{ author.name }}</a>
+                        <div>
+                            <img class="img-thumbnail" style="height: 12rem; width: 9rem;" src="{{ author.photo.url }}">
+                        </div>
+                        <p></p>
+                    {% endfor %}
+                </div>
+
+                <div class="col-md-1 p-3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

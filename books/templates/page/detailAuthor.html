@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Informace o autorech{% endblock %}
+{% block content %}
+<div class="row pt-3">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 obrazek2">
+        <h2 class="display-5 text-center">Informace k autorovi</h2>
+    </div>
+</div>
+    <div class="row mt-5 mb-3">
+        <div class="col-md-3">
+        </div>
+        <div class="col-lg-6 mb-3 bg-dark text-light">
+            <h2 class="display-4 mb-3 ">{{ authors_detail.name }}</h2>
+            <div class="row">
+                <div class="col-md-9">{{ authors_detail.bio }}
+                </div>
+                <div class="col-md-3">{% if authors_detail.photo %}
+                    <a href="{{ authors_detail.photo.url }}"><img src="{{ authors_detail.photo.url }}" class="img-fluid" alt="Obal knihy"></a>
+                {% endif %}
+                </div>
+            </div>
+        <p></p>
+        </div>
+        </div>
+    </div>
+{% endblock %}

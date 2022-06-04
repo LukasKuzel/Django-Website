@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Seznam autorů{% endblock %}
+{% block content %}
+<div class="row pt-3">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 obrazek2">
+        <h2 class="display-5 text-center">Seznam autorů</h2>
+    </div>
+</div>
+<div class="row pt-4">
+    {% for author in authors_list %}
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 pt-3">
+        <div class="card">
+            {% if author.photo %}
+            <img class="card-img-top" src="{{ author.photo.url }}" alt="{{ author.name }}" style="height: 24rem;">
+            {% endif %}
+            <div class="card-body">
+               <h4 class="card-title" style="height: 6rem;"><a>{{ author.name }}</a></h4>
+                <a href="{% url 'authordetail' author.pk %}" class="btn btn-primary">Podrobnosti</a>
+            </div>
+        </div>
+    <p></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
