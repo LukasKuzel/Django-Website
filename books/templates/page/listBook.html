@@ -16,7 +16,7 @@
             {% if book.photo %}
             <img class="card-img-top" style="height: 24rem;" src="{{ book.photo.url }}" alt="{{ book.name }}">
             {% endif %}
-            <div class="card-body" style="height: 20rem;">
+            <div class="card-body">
                <h4 class="card-title"><a>{{ book.name }}</a></h4>
                 <p class="card-text">{% for authors in book.author.all %}<a href="{% url 'bookauthor' authors.name %}" class="btn btn-light">{{ authors.name }}</a> {% endfor %}</p>
                 <p class="card-text">{% for kind in book.kinds.all %}<a href="{% url 'bookkind' kind.name %}" class="btn btn-light">{{ kind.name }}</a> {% endfor %}</p>
